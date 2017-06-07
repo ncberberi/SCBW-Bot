@@ -107,7 +107,7 @@ void StrategyBossZerg::updateGameState()
 	}
 	_lastUpdateFrame = BWAPI::Broodwar->getFrameCount();
 
-	if (_emergencyGroundDefense && _lastUpdateFrame >= _emergencyStartFrame + (20 * 24))
+	if (_emergencyGroundDefense && _lastUpdateFrame >= _emergencyStartFrame + (12 * 24))
 	{
 		// Danger has been past for long enough. Declare the end of the emergency.
 		_emergencyGroundDefense = false;
