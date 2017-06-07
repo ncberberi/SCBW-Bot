@@ -1,0 +1,122 @@
+﻿Build started 6/7/2017 11:02:45 AM.
+     1>Project "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\UAlbertaBot.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I../BOSS/source /I../SparCraft/source /I../source /I"C:\Users\Nicholas\Haven\GitHub Repositories\sscait_libraries\BWTAlib_2.2/include" /I"C:\Users\Nicholas\Haven\GitHub Repositories\sscait_libraries\BWAPI_412/include" /ZI /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D EXAMPLEAIMODULE_EXPORTS /D NOMINMAX /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\\" /Fd"C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\Source\BOSSManager.cpp ..\Source\BuildingData.cpp ..\source\BuildingManager.cpp ..\source\BuildingPlacer.cpp ..\source\BuildOrder.cpp ..\source\BuildOrderQueue.cpp ..\Source\CombatSimulation.cpp ..\Source\CombatCommander.cpp ..\Source\Common.cpp ..\Source\Dll.cpp ..\Source\GameCommander.cpp ..\Source\InformationManager.cpp ..\source\JSONTools.cpp ..\Source\Logger.cpp ..\Source\MacroAct.cpp ..\Source\MapGrid.cpp ..\Source\MapTools.cpp ..\Source\MicroDetectors.cpp ..\Source\MicroHighTemplar.cpp ..\Source\MicroLurkers.cpp ..\source\MicroManager.cpp ..\Source\Config.cpp ..\Source\Micro.cpp ..\Source\MicroMedics.cpp ..\Source\MicroMelee.cpp ..\Source\MicroRanged.cpp ..\Source\MicroTanks.cpp ..\Source\MicroTransports.cpp ..\Source\ParseUtils.cpp ..\source\ProductionManager.cpp ..\source\ScoutManager.cpp ..\Source\Squad.cpp ..\Source\SquadData.cpp ..\Source\StrategyBossZerg.cpp ..\Source\StrategyManager.cpp ..\source\TimerManager.cpp ..\Source\UABAssert.cpp ..\Source\UAlbertaBotModule.cpp ..\Source\UnitData.cpp ..\Source\UnitUtil.cpp ..\source\WorkerData.cpp ..\source\WorkerManager.cpp
+         BOSSManager.cpp
+         BuildingData.cpp
+         BuildingManager.cpp
+         BuildingPlacer.cpp
+         BuildOrder.cpp
+         BuildOrderQueue.cpp
+         CombatSimulation.cpp
+         CombatCommander.cpp
+         Common.cpp
+         Dll.cpp
+         GameCommander.cpp
+         InformationManager.cpp
+         JSONTools.cpp
+         Logger.cpp
+         MacroAct.cpp
+     1>c:\users\nicholas\haven\github repositories\sscait_bot\steamhammer_source\steamhammer\source\logger.cpp(48): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+         MapGrid.cpp
+         MapTools.cpp
+         MicroDetectors.cpp
+         MicroHighTemplar.cpp
+         MicroLurkers.cpp
+         MicroManager.cpp
+         Config.cpp
+         Micro.cpp
+         MicroMedics.cpp
+         MicroMelee.cpp
+         MicroRanged.cpp
+         MicroTanks.cpp
+         MicroTransports.cpp
+         ParseUtils.cpp
+         ProductionManager.cpp
+         ScoutManager.cpp
+         Squad.cpp
+         SquadData.cpp
+         StrategyBossZerg.cpp
+         StrategyManager.cpp
+         TimerManager.cpp
+         UABAssert.cpp
+     1>c:\users\nicholas\haven\github repositories\sscait_bot\steamhammer_source\steamhammer\source\strategymanager.cpp(490): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+         UAlbertaBotModule.cpp
+         UnitData.cpp
+         UnitUtil.cpp
+         WorkerData.cpp
+         WorkerManager.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\..\bin\Steamhammer_d.dll" /INCREMENTAL /NOLOGO "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_libraries\BWAPI_412/lib/BWAPId.lib" Debug/SparCraft/SparCraft_d.lib ../../BOSS/bin/BOSS_d.lib "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_libraries\BWTAlib_2.2/lib/BWTAd.lib" "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_libraries\BWTAlib_2.2/lib/libboost_system-vc120-mt-gd-1_56.lib" "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_libraries\BWTAlib_2.2/lib/libboost_thread-vc120-mt-gd-1_56.lib" "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_libraries\BWTAlib_2.2/lib/libCGAL-vc120-mt-gd-4.4.lib" "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_libraries\BWTAlib_2.2/lib/libgmp-10.lib" "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_libraries\BWTAlib_2.2/lib/libmpfr-4.lib" "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_libraries\BWTAlib_2.2/lib/libboost_filesystem-vc120-mt-gd-1_56.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\..\bin\Steamhammer_d.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\..\bin\Steamhammer_d.lib" /MACHINE:X86 /SAFESEH /DLL "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\BOSSManager.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\BuildingData.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\BuildingManager.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\BuildingPlacer.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\BuildOrder.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\BuildOrderQueue.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\CombatSimulation.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\CombatCommander.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\Common.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\Dll.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\GameCommander.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\InformationManager.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\JSONTools.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\Logger.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\MacroAct.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\MapGrid.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\MapTools.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\MicroDetectors.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\MicroHighTemplar.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\MicroLurkers.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\MicroManager.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\Config.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\Micro.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\MicroMedics.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\MicroMelee.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\MicroRanged.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\MicroTanks.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\MicroTransports.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\ParseUtils.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\ProductionManager.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\ScoutManager.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\Squad.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\SquadData.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\StrategyBossZerg.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\StrategyManager.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\TimerManager.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\UABAssert.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\UAlbertaBotModule.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\UnitData.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\UnitUtil.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\WorkerData.obj"
+         "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Debug\Steamhammer\WorkerManager.obj"
+     1>BOSSManager.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+            Creating library C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\..\bin\Steamhammer_d.lib and object C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\..\bin\Steamhammer_d.exp
+     1>BWTAd.lib(BaseLocationImpl.obj) : warning LNK4099: PDB 'bwtad.pdb' was not found with 'BWTAd.lib(BaseLocationImpl.obj)' or at 'C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\bin\bwtad.pdb'; linking object as if no debug info
+     1>BWTAd.lib(BWTA.obj) : warning LNK4099: PDB 'bwtad.pdb' was not found with 'BWTAd.lib(BWTA.obj)' or at 'C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\bin\bwtad.pdb'; linking object as if no debug info
+     1>BWTAd.lib(BWTA_Result.obj) : warning LNK4099: PDB 'bwtad.pdb' was not found with 'BWTAd.lib(BWTA_Result.obj)' or at 'C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\bin\bwtad.pdb'; linking object as if no debug info
+     1>BWTAd.lib(calculate_connectivity.obj) : warning LNK4099: PDB 'bwtad.pdb' was not found with 'BWTAd.lib(calculate_connectivity.obj)' or at 'C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\bin\bwtad.pdb'; linking object as if no debug info
+     1>BWTAd.lib(ChokepointImpl.obj) : warning LNK4099: PDB 'bwtad.pdb' was not found with 'BWTAd.lib(ChokepointImpl.obj)' or at 'C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\bin\bwtad.pdb'; linking object as if no debug info
+     1>BWTAd.lib(ConnectedComponent.obj) : warning LNK4099: PDB 'bwtad.pdb' was not found with 'BWTAd.lib(ConnectedComponent.obj)' or at 'C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\bin\bwtad.pdb'; linking object as if no debug info
+     1>BWTAd.lib(extract_polygons.obj) : warning LNK4099: PDB 'bwtad.pdb' was not found with 'BWTAd.lib(extract_polygons.obj)' or at 'C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\bin\bwtad.pdb'; linking object as if no debug info
+     1>BWTAd.lib(find_base_locations.obj) : warning LNK4099: PDB 'bwtad.pdb' was not found with 'BWTAd.lib(find_base_locations.obj)' or at 'C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\bin\bwtad.pdb'; linking object as if no debug info
+     1>BWTAd.lib(get_voronoi_edges.obj) : warning LNK4099: PDB 'bwtad.pdb' was not found with 'BWTAd.lib(get_voronoi_edges.obj)' or at 'C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\bin\bwtad.pdb'; linking object as if no debug info
+     1>BWTAd.lib(Graph.obj) : warning LNK4099: PDB 'bwtad.pdb' was not found with 'BWTAd.lib(Graph.obj)' or at 'C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\bin\bwtad.pdb'; linking object as if no debug info
+     1>BWTAd.lib(load_data.obj) : warning LNK4099: PDB 'bwtad.pdb' was not found with 'BWTAd.lib(load_data.obj)' or at 'C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\bin\bwtad.pdb'; linking object as if no debug info
+     1>BWTAd.lib(MapData.obj) : warning LNK4099: PDB 'bwtad.pdb' was not found with 'BWTAd.lib(MapData.obj)' or at 'C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\bin\bwtad.pdb'; linking object as if no debug info
+     1>BWTAd.lib(Node.obj) : warning LNK4099: PDB 'bwtad.pdb' was not found with 'BWTAd.lib(Node.obj)' or at 'C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\bin\bwtad.pdb'; linking object as if no debug info
+     1>BWTAd.lib(Polygon.obj) : warning LNK4099: PDB 'bwtad.pdb' was not found with 'BWTAd.lib(Polygon.obj)' or at 'C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\bin\bwtad.pdb'; linking object as if no debug info
+     1>BWTAd.lib(RegionImpl.obj) : warning LNK4099: PDB 'bwtad.pdb' was not found with 'BWTAd.lib(RegionImpl.obj)' or at 'C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\bin\bwtad.pdb'; linking object as if no debug info
+     1>BWTAd.lib(terrain_analysis.obj) : warning LNK4099: PDB 'bwtad.pdb' was not found with 'BWTAd.lib(terrain_analysis.obj)' or at 'C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\bin\bwtad.pdb'; linking object as if no debug info
+     1>BWTAd.lib(util.obj) : warning LNK4099: PDB 'bwtad.pdb' was not found with 'BWTAd.lib(util.obj)' or at 'C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\bin\bwtad.pdb'; linking object as if no debug info
+     1>BWTAd.lib(VertexData.obj) : warning LNK4099: PDB 'bwtad.pdb' was not found with 'BWTAd.lib(VertexData.obj)' or at 'C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\bin\bwtad.pdb'; linking object as if no debug info
+     1>BWTAd.lib(stdafx.obj) : warning LNK4099: PDB 'bwtad.pdb' was not found with 'BWTAd.lib(stdafx.obj)' or at 'C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\bin\bwtad.pdb'; linking object as if no debug info
+     1>BWTAd.lib(pathfinding.obj) : warning LNK4099: PDB 'bwtad.pdb' was not found with 'BWTAd.lib(pathfinding.obj)' or at 'C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\bin\bwtad.pdb'; linking object as if no debug info
+     1>BWTAd.lib(all_files.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'BWTAd.lib(all_files.obj)' or at 'C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\bin\vc120.pdb'; linking object as if no debug info
+         UAlbertaBot.vcxproj -> C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\..\bin\Steamhammer_d.dll
+     1>Done Building Project "C:\Users\Nicholas\Haven\GitHub Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\UAlbertaBot.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:40.60

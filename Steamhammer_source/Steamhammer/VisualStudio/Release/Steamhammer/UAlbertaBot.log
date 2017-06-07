@@ -1,0 +1,98 @@
+﻿Build started 6/7/2017 11:16:10 AM.
+     1>Project "C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\UAlbertaBot.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I../BOSS/source /I../SparCraft/source /I../source /IC:\Users\Nicholas\Haven\GitHub_Repositories\sscait_libraries\BWAPI_412/include /IC:\Users\Nicholas\Haven\GitHub_Repositories\sscait_libraries\BWTAlib_2.2/include /Zi /nologo /W3 /WX- /MP /Ox /Ob2 /Oi /Ot /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D EXAMPLEAIMODULE_EXPORTS /D NOMINMAX /D _WINDLL /D _UNICODE /D UNICODE /GF /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\\" /Fd"C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\vc120.pdb" /Gd /TP /wd4996 /analyze- /errorReport:prompt ..\Source\BOSSManager.cpp ..\Source\BuildingData.cpp ..\source\BuildingManager.cpp ..\source\BuildingPlacer.cpp ..\source\BuildOrder.cpp ..\source\BuildOrderQueue.cpp ..\Source\CombatSimulation.cpp ..\Source\CombatCommander.cpp ..\Source\Common.cpp ..\Source\Dll.cpp ..\Source\GameCommander.cpp ..\Source\InformationManager.cpp ..\source\JSONTools.cpp ..\Source\Logger.cpp ..\Source\MacroAct.cpp ..\Source\MapGrid.cpp ..\Source\MapTools.cpp ..\Source\MicroDetectors.cpp ..\Source\MicroHighTemplar.cpp ..\Source\MicroLurkers.cpp ..\source\MicroManager.cpp ..\Source\Config.cpp ..\Source\Micro.cpp ..\Source\MicroMedics.cpp ..\Source\MicroMelee.cpp ..\Source\MicroRanged.cpp ..\Source\MicroTanks.cpp ..\Source\MicroTransports.cpp ..\Source\ParseUtils.cpp ..\source\ProductionManager.cpp ..\source\ScoutManager.cpp ..\Source\Squad.cpp ..\Source\SquadData.cpp ..\Source\StrategyBossZerg.cpp ..\Source\StrategyManager.cpp ..\source\TimerManager.cpp ..\Source\UABAssert.cpp ..\Source\UAlbertaBotModule.cpp ..\Source\UnitData.cpp ..\Source\UnitUtil.cpp ..\source\WorkerData.cpp ..\source\WorkerManager.cpp
+         BOSSManager.cpp
+         BuildingData.cpp
+         BuildingManager.cpp
+         BuildingPlacer.cpp
+         BuildOrder.cpp
+         BuildOrderQueue.cpp
+         CombatSimulation.cpp
+         CombatCommander.cpp
+         Common.cpp
+         Dll.cpp
+         GameCommander.cpp
+         InformationManager.cpp
+         JSONTools.cpp
+         Logger.cpp
+         MacroAct.cpp
+         MapGrid.cpp
+         MapTools.cpp
+         MicroDetectors.cpp
+         MicroHighTemplar.cpp
+         MicroLurkers.cpp
+         MicroManager.cpp
+         Config.cpp
+         Micro.cpp
+         MicroMedics.cpp
+         MicroMelee.cpp
+         MicroRanged.cpp
+         MicroTanks.cpp
+         MicroTransports.cpp
+         ParseUtils.cpp
+         ProductionManager.cpp
+         ScoutManager.cpp
+         Squad.cpp
+         SquadData.cpp
+         StrategyBossZerg.cpp
+         StrategyManager.cpp
+         TimerManager.cpp
+         UABAssert.cpp
+         UAlbertaBotModule.cpp
+         UnitData.cpp
+         UnitUtil.cpp
+         WorkerData.cpp
+         WorkerManager.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\..\bin\Steamhammer.dll" /INCREMENTAL:NO /NOLOGO C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_libraries\BWAPI_412/lib/BWAPI.lib Release/SparCraft/SparCraft.lib ../../BOSS/bin/BOSS.lib C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_libraries\BWTAlib_2.2/lib/BWTA.lib "C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_libraries\BWTAlib_2.2/lib/libboost_system-vc120-mt-1_56.lib" "C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_libraries\BWTAlib_2.2/lib/libboost_thread-vc120-mt-1_56.lib" "C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_libraries\BWTAlib_2.2/lib/libCGAL-vc120-mt-4.4.lib" "C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_libraries\BWTAlib_2.2/lib/libgmp-10.lib" "C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_libraries\BWTAlib_2.2/lib/libmpfr-4.lib" "C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_libraries\BWTAlib_2.2/lib/libboost_filesystem-vc120-mt-1_56.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\..\bin\Steamhammer.pdb" /MAP /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /MACHINE:X86 /SAFESEH /DLL C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\BOSSManager.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\BuildingData.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\BuildingManager.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\BuildingPlacer.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\BuildOrder.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\BuildOrderQueue.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\CombatSimulation.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\CombatCommander.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\Common.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\Dll.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\GameCommander.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\InformationManager.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\JSONTools.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\Logger.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\MacroAct.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\MapGrid.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\MapTools.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\MicroDetectors.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\MicroHighTemplar.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\MicroLurkers.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\MicroManager.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\Config.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\Micro.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\MicroMedics.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\MicroMelee.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\MicroRanged.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\MicroTanks.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\MicroTransports.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\ParseUtils.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\ProductionManager.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\ScoutManager.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\Squad.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\SquadData.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\StrategyBossZerg.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\StrategyManager.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\TimerManager.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\UABAssert.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\UAlbertaBotModule.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\UnitData.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\UnitUtil.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\WorkerData.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\Steamhammer\WorkerManager.obj
+            Creating library C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\..\bin\Steamhammer.lib and object C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\..\bin\Steamhammer.exp
+         Generating code
+         Finished generating code
+         UAlbertaBot.vcxproj -> C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\..\bin\Steamhammer.dll
+     1>Done Building Project "C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\UAlbertaBot.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:40.79

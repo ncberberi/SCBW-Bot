@@ -1,0 +1,81 @@
+﻿Build started 6/7/2017 11:15:24 AM.
+     1>Project "C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\BOSS\VisualStudio\BOSS.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Nicholas\Haven\GitHub_Repositories\sscait_libraries\BWAPI_412/include /Zi /nologo /W3 /WX- /MP /Ox /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D NOMINMAX /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\\" /Fd"C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\vc120.pdb" /FR"C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\\" /Gd /TP /wd4996 /analyze- /errorReport:prompt ..\source\ActionInProgress.cpp ..\source\ActionSet.cpp ..\source\ActionType.cpp ..\source\ActionTypeData.cpp ..\source\BOSSAssert.cpp ..\source\BOSSException.cpp ..\source\BuildOrder.cpp ..\source\BuildOrderPlot.cpp ..\source\CombatSearch.cpp ..\source\BOSS.cpp ..\source\BuildingData.cpp ..\source\CombatSearch_BestResponse.cpp ..\source\CombatSearch_BestResponseData.cpp ..\source\CombatSearch_Bucket.cpp ..\source\CombatSearch_BucketData.cpp ..\source\CombatSearch_IntegralData.cpp ..\source\CombatSearchParameters.cpp ..\source\CombatSearchResults.cpp ..\source\CombatSearch_Integral.cpp ..\source\Constants.cpp ..\source\BuildOrderSearchGoal.cpp ..\source\DFBB_BuildOrderSearchParameters.cpp ..\source\DFBB_BuildOrderSearchResults.cpp ..\source\DFBB_BuildOrderSmartSearch.cpp ..\source\DFBB_BuildOrderStackSearch.cpp ..\source\Eval.cpp ..\source\GameState.cpp ..\source\HatcheryData.cpp ..\source\BOSSLogger.cpp ..\source\JSONTools.cpp ..\source\NaiveBuildOrderSearch.cpp ..\source\PrerequisiteSet.cpp ..\source\Tools.cpp ..\source\UnitData.cpp
+         ActionInProgress.cpp
+         ActionSet.cpp
+         ActionType.cpp
+         ActionTypeData.cpp
+         BOSSAssert.cpp
+         BOSSException.cpp
+         BuildOrder.cpp
+         BuildOrderPlot.cpp
+         CombatSearch.cpp
+         BOSS.cpp
+         BuildingData.cpp
+         CombatSearch_BestResponse.cpp
+         CombatSearch_BestResponseData.cpp
+         CombatSearch_Bucket.cpp
+         CombatSearch_BucketData.cpp
+         CombatSearch_IntegralData.cpp
+         CombatSearchParameters.cpp
+         CombatSearchResults.cpp
+         CombatSearch_Integral.cpp
+         Constants.cpp
+         BuildOrderSearchGoal.cpp
+         DFBB_BuildOrderSearchParameters.cpp
+         DFBB_BuildOrderSearchResults.cpp
+         DFBB_BuildOrderSmartSearch.cpp
+         DFBB_BuildOrderStackSearch.cpp
+         Eval.cpp
+         GameState.cpp
+         HatcheryData.cpp
+         BOSSLogger.cpp
+         JSONTools.cpp
+         NaiveBuildOrderSearch.cpp
+         PrerequisiteSet.cpp
+         Tools.cpp
+         UnitData.cpp
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"../bin/BOSS.lib" /NOLOGO /LTCG C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\ActionInProgress.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\ActionSet.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\ActionType.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\ActionTypeData.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\BOSSAssert.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\BOSSException.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\BuildOrder.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\BuildOrderPlot.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\CombatSearch.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\BOSS.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\BuildingData.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\CombatSearch_BestResponse.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\CombatSearch_BestResponseData.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\CombatSearch_Bucket.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\CombatSearch_BucketData.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\CombatSearch_IntegralData.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\CombatSearchParameters.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\CombatSearchResults.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\CombatSearch_Integral.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\Constants.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\BuildOrderSearchGoal.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\DFBB_BuildOrderSearchParameters.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\DFBB_BuildOrderSearchResults.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\DFBB_BuildOrderSmartSearch.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\DFBB_BuildOrderStackSearch.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\Eval.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\GameState.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\HatcheryData.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\BOSSLogger.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\JSONTools.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\NaiveBuildOrderSearch.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\PrerequisiteSet.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\Tools.obj
+         C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\UnitData.obj
+         BOSS.vcxproj -> C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\BOSS\VisualStudio\../bin/BOSS.lib
+       BscMake:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\bscmake.exe /nologo /o"../bin/BOSS.bsc" /n C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\ActionInProgress.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\ActionSet.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\ActionType.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\ActionTypeData.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\BOSSAssert.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\BOSSException.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\BuildOrder.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\BuildOrderPlot.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\CombatSearch.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\BOSS.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\BuildingData.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\CombatSearch_BestResponse.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\CombatSearch_BestResponseData.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\CombatSearch_Bucket.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\CombatSearch_BucketData.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\CombatSearch_IntegralData.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\CombatSearchParameters.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\CombatSearchResults.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\CombatSearch_Integral.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\Constants.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\BuildOrderSearchGoal.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\DFBB_BuildOrderSearchParameters.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\DFBB_BuildOrderSearchResults.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\DFBB_BuildOrderSmartSearch.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\DFBB_BuildOrderStackSearch.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\Eval.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\GameState.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\HatcheryData.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\BOSSLogger.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\JSONTools.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\NaiveBuildOrderSearch.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\PrerequisiteSet.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\Tools.sbr C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\Steamhammer\VisualStudio\\Release\BOSS\UnitData.sbr
+     1>Done Building Project "C:\Users\Nicholas\Haven\GitHub_Repositories\sscait_bot\Steamhammer_source\BOSS\VisualStudio\BOSS.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:45.48
