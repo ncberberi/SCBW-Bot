@@ -58,16 +58,7 @@ void ProductionManager::update()
 }
 
 void ProductionManager::onUnitDestroy(BWAPI::Unit unit)
-{
-	// If it's not our unit, we don't care.
-	// Also, zerg no longer relies on this.
-	if (BWAPI::Broodwar->self()->getRace() == BWAPI::Races::Zerg ||
-		!unit ||
-		unit->getPlayer() != BWAPI::Broodwar->self())
-	{
-		return;
-	}
-	
+{	
 	// if it's a worker or a building, we need to re-search for the current goal
 	if ((unit->getType().isWorker() && !WorkerManager::Instance().isWorkerScout(unit)) ||
 		unit->getType().isBuilding())
@@ -368,9 +359,7 @@ void ProductionManager::create(BWAPI::Unit producer, BuildOrderItem & item)
     MacroAct act = item.macroAct;
 
     // if we're dealing with a building
-	if (act.isBuilding()                                        // implies act.isUnit()
-		&& !UnitUtil::IsMorphedBuildingType(act.getUnitType())  // morphed from another zerg building, not built
-		&& !act.getUnitType().isAddon())                        // terran addon
+	if (act.isBuilding() && !UnitUtil::IsMorphedBuildingType(act.getUnitType()))  // morphed from another zerg building, not built
 	{
 		// By default, build in the main base.
 		// BuildingManager will override the location if it needs to.

@@ -20,7 +20,6 @@ void BuildingManager::update()
     assignWorkersToUnassignedBuildings();   // assign workers to the unassigned buildings and label them 'planned'    
     constructAssignedBuildings();           // for each planned building, if the worker isn't constructing, send the command    
     checkForStartedConstruction();          // check to see if any buildings have started construction and update data structures    
-    checkForDeadTerranBuilders();           // if we are terran and a building is under construction without a worker, assign a new one    
     checkForCompletedBuildings();           // check to see if any buildings have completed and update data structures
 }
 
@@ -62,10 +61,6 @@ void BuildingManager::assignWorkersToUnassignedBuildings()
         }
 
 		// BWAPI::Broodwar->printf("Assigning Worker To: %s", b.type.getName().c_str());
-
-        // TODO: special case of terran building whose worker died mid construction
-        //       send the right click command to the buildingUnit to resume construction
-        //		 skip the buildingsAssigned step and push it back into buildingsUnderConstruction
 
         BWAPI::TilePosition testLocation = getBuildingLocation(b);
         if (!testLocation.isValid())
@@ -217,35 +212,7 @@ void BuildingManager::checkForStartedConstruction()
     }
 }
 
-// STEP 5: IF THE SCV DIED DURING CONSTRUCTION, ASSIGN A NEW ONE
-void BuildingManager::checkForDeadTerranBuilders()
-{
-	if (BWAPI::Broodwar->self()->getRace() != BWAPI::Races::Terran)
-	{
-		return;
-	}
-
-	for (auto & b : _buildings)
-	{
-		if (b.status != BuildingStatus::UnderConstruction)
-		{
-			continue;
-		}
-
-		UAB_ASSERT(b.buildingUnit, "null buildingUnit");
-
-		if (!UnitUtil::IsValidUnit(b.builderUnit))
-		{
-			b.builderUnit = WorkerManager::Instance().getBuilder(b);
-			if (b.builderUnit && b.builderUnit->exists())
-			{
-				b.builderUnit->rightClick(b.buildingUnit);
-			}
-		}
-	}
-}
-
-// STEP 6: CHECK FOR COMPLETED BUILDINGS
+// STEP 5: CHECK FOR COMPLETED BUILDINGS
 void BuildingManager::checkForCompletedBuildings()
 {
     std::vector<Building> toRemove;
@@ -370,7 +337,6 @@ void BuildingManager::drawBuildingInformation(int x, int y)
         BWAPI::Broodwar->drawTextMap(unit->getPosition().x,unit->getPosition().y+5,"\x07%d",unit->getID());
     }
 
-	//for (auto geyser : BWAPI::Broodwar->getStaticGeysers())
 	for (auto geyser : BWAPI::Broodwar->getAllUnits())
 	{
 		if (geyser->getType() == BWAPI::UnitTypes::Resource_Vespene_Geyser)
@@ -384,14 +350,6 @@ void BuildingManager::drawBuildingInformation(int x, int y)
     BWAPI::Broodwar->drawTextScreen(x+150,y+20,"\x04 State");
 
     int yspace = 0;
-
-	//for (auto geyser : BWAPI::Broodwar->getStaticGeysers())
-	//{
-	//	char exists = geyser->exists() ? 'e' : '-';
-	//	char visible = geyser->isVisible() ? 'v' : '-';
-		// BWAPI::Broodwar->drawTextScreen(x, y, "\x07%d @ %d, %d %c%c", geyser->getType(), geyser->getInitialTilePosition().x, geyser->getInitialTilePosition().y, exists, visible);
-	//	y += 10;
-	//}
 
 	for (const auto & b : _buildings)
     {
@@ -549,41 +507,15 @@ BWAPI::TilePosition BuildingManager::getBuildingLocation(const Building & b)
 	}
 
     int distance = Config::Macro::BuildingSpacing;
-	if (b.type == BWAPI::UnitTypes::Terran_Bunker ||
-		b.type == BWAPI::UnitTypes::Protoss_Photon_Cannon ||
-		b.type == BWAPI::UnitTypes::Zerg_Creep_Colony)
-	{
-		// Pack defenses tightly together.
-		distance = 0;
-	}
-	else if (b.type == BWAPI::UnitTypes::Protoss_Pylon)
-    {
-		if (numPylons < 3)
-		{
-			// Early pylons may be spaced differently than other buildings.
-			distance = Config::Macro::PylonSpacing;
-		}
-		else
-		{
-			// Building spacing == 1 is usual. Be more generous with pylons.
-			distance = 2;
-		}
-	}
 
-	// Try to pack protoss buildings more closely together. Space can run out.
-	bool noVerticalSpacing = false;
-	if (b.type == BWAPI::UnitTypes::Protoss_Gateway ||
-		b.type == BWAPI::UnitTypes::Protoss_Forge || 
-		b.type == BWAPI::UnitTypes::Protoss_Stargate || 
-		b.type == BWAPI::UnitTypes::Protoss_Citadel_of_Adun || 
-		b.type == BWAPI::UnitTypes::Protoss_Templar_Archives || 
-		b.type == BWAPI::UnitTypes::Protoss_Gateway)
+	// Pack defenses tightly together.
+	if ( b.type == BWAPI::UnitTypes::Zerg_Creep_Colony)
 	{
-		noVerticalSpacing = true;
+		distance = 0;
 	}
 
 	// Get a position within our region.
-	return BuildingPlacer::Instance().getBuildLocationNear(b, distance, noVerticalSpacing);
+	return BuildingPlacer::Instance().getBuildLocationNear(b, distance, false);
 }
 
 // The building failed or is canceled.
