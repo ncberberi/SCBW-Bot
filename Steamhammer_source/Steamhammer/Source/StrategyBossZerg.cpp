@@ -207,27 +207,30 @@ bool StrategyBossZerg::isBeingBuilt(const BWAPI::UnitType unitType) const
 }
 
 // Severe emergency: We are out of drones and/or hatcheries.
-// Cancel items to release their resources.
+// Cancel items to release their resources until there is enough.
 // TODO pay attention to priority: the least essential first
-// TODO cancel research
 void StrategyBossZerg::cancelStuff(int mineralsNeeded)
 {
-	int mineralsSoFar = _self->minerals();
+	int currentMinerals = _self->minerals();
 
 	for (BWAPI::Unit u : _self->getUnits())
 	{
-		if (mineralsSoFar >= mineralsNeeded)
+		if (currentMinerals >= mineralsNeeded)
 		{
 			return;
 		}
+		
+		// Cancel overlords in progress if we are not supply capped
 		if (u->getType() == BWAPI::UnitTypes::Zerg_Egg && u->getBuildType() == BWAPI::UnitTypes::Zerg_Overlord)
 		{
 			if (_self->supplyTotal() - _supplyUsed >= 6)  // enough to add 3 drones
 			{
-				mineralsSoFar += 100;
+				currentMinerals += 100;
 				u->cancelMorph();
 			}
 		}
+
+		// Cancel buildings in progress
 		else if (u->getType() == BWAPI::UnitTypes::Zerg_Egg && u->getBuildType() != BWAPI::UnitTypes::Zerg_Drone ||
 			u->getType() == BWAPI::UnitTypes::Zerg_Lair && !u->isCompleted() ||
 			u->getType() == BWAPI::UnitTypes::Zerg_Creep_Colony && !u->isCompleted() ||
@@ -236,8 +239,25 @@ void StrategyBossZerg::cancelStuff(int mineralsNeeded)
 			u->getType() == BWAPI::UnitTypes::Zerg_Queens_Nest && !u->isCompleted() ||
 			u->getType() == BWAPI::UnitTypes::Zerg_Hatchery && !u->isCompleted() && nHatches > 1)
 		{
-			mineralsSoFar += u->getType().mineralPrice();
+			currentMinerals += u->getType().mineralPrice();
 			u->cancelMorph();
+		}
+
+		// Cancel research
+		else if (u->getType() == BWAPI::UnitTypes::Zerg_Evolution_Chamber && u->isCompleted ||
+			u->getType() == BWAPI::UnitTypes::Zerg_Ultralisk_Cavern && u->isCompleted ||
+			u->getType() == BWAPI::UnitTypes::Zerg_Hatchery && u->isCompleted ||
+			u->getType() == BWAPI::UnitTypes::Zerg_Lair && u->isCompleted ||
+			u->getType() == BWAPI::UnitTypes::Zerg_Hydralisk_Den && u->isCompleted ||
+			u->getType() == BWAPI::UnitTypes::Zerg_Spire && u->isCompleted ||
+			u->getType() == BWAPI::UnitTypes::Zerg_Spawning_Pool && u->isCompleted ||
+			u->getType() == BWAPI::UnitTypes::Zerg_Queens_Nest && u->isCompleted)
+		{
+			if (u->canCancelResearch) 
+			{
+				u->cancelResearch();
+			}
+
 		}
 	}
 }
