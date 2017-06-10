@@ -369,13 +369,13 @@ BWAPI::Unit WorkerManager::getClosestMineralWorkerTo(BWAPI::Unit enemyUnit)
 	if (UnitUtil::IsValidUnit(previousClosestWorker) && previousClosestWorker->getType().isWorker())
 	{
 		return previousClosestWorker;
-    }
+	}
 
 	for (auto & worker : workerData.getWorkers())
 	{
-        UAB_ASSERT(worker != nullptr, "Worker was null");
+		UAB_ASSERT(worker != nullptr, "Worker was null");
 
-        if (workerData.getWorkerJob(worker) == WorkerData::Minerals) 
+		if (workerData.getWorkerJob(worker) == WorkerData::Minerals)
 		{
 			double dist = worker->getDistance(enemyUnit);
 			if (worker->isCarryingMinerals() || worker->isCarryingGas())
@@ -385,39 +385,39 @@ BWAPI::Unit WorkerManager::getClosestMineralWorkerTo(BWAPI::Unit enemyUnit)
 				dist += 64;
 			}
 
-            if (dist < closestDist)
-            {
-                closestMineralWorker = worker;
-                dist = closestDist;
-            }
+			if (dist < closestDist)
+			{
+				closestMineralWorker = worker;
+				dist = closestDist;
+			}
 		}
 	}
 
-    previousClosestWorker = closestMineralWorker;
-    return closestMineralWorker;
+	previousClosestWorker = closestMineralWorker;
+	return closestMineralWorker;
 }
 
 BWAPI::Unit WorkerManager::getWorkerScout()
 {
 	for (auto & worker : workerData.getWorkers())
 	{
-        UAB_ASSERT(worker != nullptr, "Worker was null");
-        if (workerData.getWorkerJob(worker) == WorkerData::Scout) 
+		UAB_ASSERT(worker != nullptr, "Worker was null");
+		if (workerData.getWorkerJob(worker) == WorkerData::Scout)
 		{
 			return worker;
 		}
 	}
 
-    return nullptr;
+	return nullptr;
 }
 
-void WorkerManager::handleMoveWorkers() 
+void WorkerManager::handleMoveWorkers()
 {
 	for (auto & worker : workerData.getWorkers())
 	{
-        UAB_ASSERT(worker != nullptr, "Worker was null");
+		UAB_ASSERT(worker != nullptr, "Worker was null");
 
-		if (workerData.getWorkerJob(worker) == WorkerData::Move) 
+		if (workerData.getWorkerJob(worker) == WorkerData::Move)
 		{
 			BWAPI::Unit depot;
 			if ((worker->isCarryingMinerals() || worker->isCarryingGas()) &&
@@ -441,7 +441,7 @@ void WorkerManager::handleMoveWorkers()
 // Send the worker to mine minerals at the closest resource depot, if any.
 void WorkerManager::setMineralWorker(BWAPI::Unit unit)
 {
-    UAB_ASSERT(unit != nullptr, "Unit was null");
+	UAB_ASSERT(unit != nullptr, "Unit was null");
 
 	BWAPI::Unit depot = getClosestDepot(unit);
 
@@ -468,7 +468,12 @@ void WorkerManager::setReturnCargoWorker(BWAPI::Unit unit)
 	}
 	else
 	{
-		// BWAPI::Broodwar->printf("No depot to accept return cargo");
+		// If all hatcheries were destroyed, build a new one.
+		if (!BuildingManager::Instance().isBeingBuilt(BWAPI::UnitTypes::Zerg_Hatchery)) 
+		{
+			BuildingManager::Instance().addBuildingTask(BWAPI::UnitTypes::Zerg_Hatchery, BWAPI::TilePosition(4, 3), false);
+        }
+
 	}
 }
 
@@ -522,12 +527,15 @@ BWAPI::Unit WorkerManager::getGasWorker(BWAPI::Unit refinery)
 
 		if (workerData.getWorkerJob(unit) == WorkerData::Minerals)
 		{
-			// Don't waste minerals. It's OK (and unlikely) to already be carrying gas.
+			// Don't waste minerals.
 			if (unit->isCarryingMinerals() ||                       // doesn't have minerals and
 				unit->getOrder() == BWAPI::Orders::MiningMinerals)  // isn't about to get them
 			{
 				continue;
 			}
+
+			// If it's already carrying gas, return gas before collecting more.
+			if (unit->isCarryingGas()) setReturnCargoWorker(unit);
 
 			double distance = unit->getDistance(refinery);
 			if (!closestWorker || distance < closestDistance)
