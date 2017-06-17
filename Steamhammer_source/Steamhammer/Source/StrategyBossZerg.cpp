@@ -244,16 +244,16 @@ void StrategyBossZerg::cancelStuff(int mineralsNeeded)
 		}
 
 		// Cancel research
-		else if (u->getType() == BWAPI::UnitTypes::Zerg_Evolution_Chamber && u->isCompleted ||
-			u->getType() == BWAPI::UnitTypes::Zerg_Ultralisk_Cavern && u->isCompleted ||
-			u->getType() == BWAPI::UnitTypes::Zerg_Hatchery && u->isCompleted ||
-			u->getType() == BWAPI::UnitTypes::Zerg_Lair && u->isCompleted ||
-			u->getType() == BWAPI::UnitTypes::Zerg_Hydralisk_Den && u->isCompleted ||
-			u->getType() == BWAPI::UnitTypes::Zerg_Spire && u->isCompleted ||
-			u->getType() == BWAPI::UnitTypes::Zerg_Spawning_Pool && u->isCompleted ||
-			u->getType() == BWAPI::UnitTypes::Zerg_Queens_Nest && u->isCompleted)
+		else if (u->getType() == BWAPI::UnitTypes::Zerg_Evolution_Chamber && u->isCompleted() ||
+			u->getType() == BWAPI::UnitTypes::Zerg_Ultralisk_Cavern && u->isCompleted() ||
+			u->getType() == BWAPI::UnitTypes::Zerg_Hatchery && u->isCompleted() ||
+			u->getType() == BWAPI::UnitTypes::Zerg_Lair && u->isCompleted() ||
+			u->getType() == BWAPI::UnitTypes::Zerg_Hydralisk_Den && u->isCompleted() ||
+			u->getType() == BWAPI::UnitTypes::Zerg_Spire && u->isCompleted() ||
+			u->getType() == BWAPI::UnitTypes::Zerg_Spawning_Pool && u->isCompleted() ||
+			u->getType() == BWAPI::UnitTypes::Zerg_Queens_Nest && u->isCompleted())
 		{
-			if (u->canCancelResearch) 
+			if (u->canCancelResearch()) 
 			{
 				u->cancelResearch();
 			}
