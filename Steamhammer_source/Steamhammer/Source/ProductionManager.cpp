@@ -14,7 +14,19 @@ ProductionManager::ProductionManager()
 	, _extractorTrickState			     (ExtractorTrick::None)
 	, _extractorTrickBuilding		     (nullptr)
 {
-    setBuildOrder(StrategyManager::Instance().getOpeningBookBuildOrder());
+
+	BuildOrder buildOrder;
+
+	buildOrder.add(MetaType(BWAPI::UnitTypes::Zerg_Overlord));
+	buildOrder.add(MetaType(BWAPI::UnitTypes::Zerg_Overlord));
+	buildOrder.add(MetaType(BWAPI::UnitTypes::Zerg_Overlord));
+	buildOrder.add(MetaType(BWAPI::UnitTypes::Zerg_Overlord));
+
+	setBuildOrder(buildOrder);
+
+	// Use the strategy manager to pick its own build order
+	// setBuildOrder(StrategyManager::Instance().getOpeningBookBuildOrder());
+
 }
 
 void ProductionManager::setBuildOrder(const BuildOrder & buildOrder)
