@@ -2,13 +2,13 @@
     "Bot Info" :
     {
         "BotName"                   : "Bot",
-        "Authors"                   : "Nicholas Berberi", "Jay Scott",
+        "Authors"                   : "Nicholas Berberi",
         "PrintInfoOnStart"          : true
     },
     
     "BWAPI" : 
     {
-        "SetLocalSpeed"             : 0,
+        "SetLocalSpeed"             : 20,
         "SetFrameSkip"              : 0,
         "UserInput"                 : true,
         "CompleteMapInformation"    : false
@@ -200,6 +200,7 @@
 
 		"ZvU" :
 			{ "StrategyMix" : [
+				{ "Weight" : 25, "Strategy" : "MutaGuardian" },
 				{ "Weight" :  5, "Strategy" : "FastPool", "Weight2" : 15 },
 				{ "Weight" : 20, "Strategy" : "9PoolHatch" },
 				{ "Weight" :  5, "Strategy" : "9PoolExpo" },
@@ -209,59 +210,7 @@
 				{ "Weight" : 15, "Strategy" : "OverhatchLing", "Weight2" : 5 }
 			]},
 
-		"UseEnemySpecificStrategy"  : true,
-        "EnemySpecificStrategy"     :
-        {
-			"Tomas Vajda"		: { "Zerg" : "ZvP_3HatchPoolHydra", "Protoss" : "13Nexus", "Terran" : "Tanks" },
-
-			"krasi0" : {
-				"Zerg" : [
-					{ "Weight" :  3, "Strategy" : "FastPool" },
-					{ "Weight" : 17, "Strategy" : "9PoolSpeed" },
-					{ "Weight" : 15, "Strategy" : "ZvT_12Pool" },
-					{ "Weight" : 20, "Strategy" : "ZvT_2HatchMuta" },
-					{ "Weight" : 25, "Strategy" : "ZvT_3HatchMuta", "Weight2" : 0 },
-					{ "Weight" : 20, "Strategy" : "3HatchPoolMuta", "Weight2" : 0 }
-				],
-				"Protoss" : [
-					{ "Weight" : 10, "Strategy" : "1ZealotCore" },
-					{ "Weight" :  5, "Strategy" : "DTRush" },
-					{ "Weight" : 25, "Strategy" : "DTDrop" },
-					{ "Weight" : 10, "Strategy" : "12Nexus" },
-					{ "Weight" : 50, "Strategy" : "13Nexus" }
-				]
-			},
-
-			"Marian Devecka" : {
-				"Zerg" : [
-					{ "Weight" : 50, "Strategy" : "OverhatchLing" },
-					{ "Weight" : 50, "Strategy" : "OverhatchMuta" }
-				]
-			},
-
-			"Oleg Ostroumov" : {
-				"Zerg" : [
-					{ "Weight" : 30, "Strategy" : "OverpoolSpeedling" },
-					{ "Weight" : 30, "Strategy" : "OverhatchLing" },
-					{ "Weight" : 40, "Strategy" : "OverhatchMuta" }
-				]
-			},
-
-			"5 Pool"			: "AntiRush",
-			"Dave Churchill"	: "AntiRush",
-			"Dawid Loranc"		: "AntiRush",
-			"Marcin Bartnicki"	: "AntiRush",
-			"Marek Suppa"		: "AntiRush",
-			"Neo Edmund Zerg"	: "AntiRush",
-			"PeregrineBot"		: "AntiRush",
-			"UPStarCraftAI 2016": "AntiRush",
-
-			"Jakub Trancik"		: "AntiFastCheese",
-			"Stone"				: "AntiFastCheese",
-
-			"PurpleCheese"		: "AntiSlowerCheese",
-			"Woantrik Pouni"	: "AntiSlowerCheese"
-        },
+		"UseEnemySpecificStrategy"  : false,
         
 		"StrategyCombos" :
 		{
@@ -339,6 +288,8 @@
             "ForgeExpand"			: { "Race" : "Protoss", "OpeningGroup" : "zealots", "OpeningBuildOrder" :
 				["4 x probe", "pylon @ natural", "2 x probe", "forge @ natural", "go scout location", "probe", "photon cannon @ natural", "probe", "photon cannon @ natural", "nexus", "pylon @ macro", "3 x probe", "gateway", "gateway", "pylon"]},
 
+			"MutaGuardian"			: { "Race" : "Zerg",	"OpeningBuildOrder" : ["5 x drone", "overlord", "hatchery", "drone", "spawning pool", "2 x drone", "go scout location", "extractor", "go gas until 350", "drone", "5 x zergling", "metabolic boost", "7 x zergling", "lair", "4 x drone", "spire", "go start gas", "8 x Mutalisk", "queens nest", "hive", "greater spire", "4 x guardian"]},
+			
             "4PoolHard"				: { "Race" : "Zerg",    "OpeningBuildOrder" : ["spawning pool", "go scout location", "20 x zergling"] },
             "4PoolSoft"				: { "Race" : "Zerg",    "OpeningBuildOrder" : ["spawning pool", "go scout location", "drone", "20 x zergling"] },
             "5Pool"					: { "Race" : "Zerg",    "OpeningBuildOrder" : ["drone", "spawning pool", "go scout location", "2 x drone", "10 x zergling", "hatchery", "drone", "10 x zergling"] },
