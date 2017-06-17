@@ -15,17 +15,50 @@ ProductionManager::ProductionManager()
 	, _extractorTrickBuilding		     (nullptr)
 {
 
+	 // Use the strategy manager to pick its own build order
+	 setBuildOrder(StrategyManager::Instance().getOpeningBookBuildOrder());
+
+	/*
+	Basic build order strategy for guardians
 	BuildOrder buildOrder;
 
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Drone);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Drone);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Drone);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Drone);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Drone);
 	buildOrder.add(BWAPI::UnitTypes::Zerg_Overlord);
-	buildOrder.add(BWAPI::UnitTypes::Zerg_Overlord);
-	buildOrder.add(BWAPI::UnitTypes::Zerg_Overlord);
-	buildOrder.add(BWAPI::UnitTypes::Zerg_Overlord);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Hatchery);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Drone);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Spawning_Pool);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Drone);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Drone);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Extractor);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Drone);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Zergling);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Zergling);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Zergling);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Zergling);
+	buildOrder.add(BWAPI::UpgradeTypes::Metabolic_Boost);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Zergling);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Zergling);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Zergling);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Lair);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Drone);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Extractor);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Drone);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Spire);
+	buildOrder.add(BWAPI::UpgradeTypes::Zerg_Flyer_Attacks);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Queens_Nest);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Hive);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Greater_Spire);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Guardian);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Guardian);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Guardian);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Guardian);
 
 	setBuildOrder(buildOrder);
-
-	// Use the strategy manager to pick its own build order
-	// setBuildOrder(StrategyManager::Instance().getOpeningBookBuildOrder());
+	*/
 
 }
 
