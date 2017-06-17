@@ -17,10 +17,10 @@ ProductionManager::ProductionManager()
 
 	BuildOrder buildOrder;
 
-	buildOrder.add(MetaType(BWAPI::UnitTypes::Zerg_Overlord));
-	buildOrder.add(MetaType(BWAPI::UnitTypes::Zerg_Overlord));
-	buildOrder.add(MetaType(BWAPI::UnitTypes::Zerg_Overlord));
-	buildOrder.add(MetaType(BWAPI::UnitTypes::Zerg_Overlord));
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Overlord);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Overlord);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Overlord);
+	buildOrder.add(BWAPI::UnitTypes::Zerg_Overlord);
 
 	setBuildOrder(buildOrder);
 
