@@ -84,46 +84,54 @@ void WorkerManager::updateWorkerStatus()
 			}
 			else
 			{
-				// Self-defense.
-				BWAPI::Unit target = getClosestEnemyUnit(worker);
-
-				if (target &&
-					(!target->isMoving() || target->isStuck()) &&
-					worker->getDistance(target) <= 64)
-				{
-					Micro::SmartAttackUnit(worker, target);
-				}
-				else if (worker->getOrder() != BWAPI::Orders::MoveToGas &&
-					worker->getOrder() != BWAPI::Orders::WaitForGas &&
-					worker->getOrder() != BWAPI::Orders::HarvestGas &&
-					worker->getOrder() != BWAPI::Orders::ReturnGas &&
-					worker->getOrder() != BWAPI::Orders::ResetCollision)
-				{
-					workerData.setWorkerJob(worker, WorkerData::Idle, nullptr);
-				}
+				defendSelf(worker);
 			}
 		}
 		
 		// If the worker is busy mining and an enemy comes near, maybe fight it.
 		else if (workerData.getWorkerJob(worker) == WorkerData::Minerals)
 		{
-			BWAPI::Unit target = getClosestEnemyUnit(worker);
+			defendSelf(worker);
+		}
+	}
+}
 
-			if (target &&
-				(!target->isMoving() || target->isStuck()) &&
-				worker->getDistance(target) <= 64)
+void WorkerManager::defendSelf(BWAPI::Unit worker)
+{
+	UAB_ASSERT(worker != nullptr, "Worker was null");
+
+	BWAPI::Unit closestUnit = nullptr;
+	int closestDist = 1000;         // ignore anything farther away
+
+	for (auto & unit : BWAPI::Broodwar->enemy()->getUnits())
+	{
+		if (unit->isVisible() && unit->isDetected() && !unit->isFlying())
+		{
+			int dist = unit->getDistance(worker);
+
+			if (dist < closestDist)
 			{
-				Micro::SmartAttackUnit(worker, target);
-			}
-			else if (worker->getOrder() != BWAPI::Orders::MoveToMinerals &&
-				worker->getOrder() != BWAPI::Orders::WaitForMinerals &&
-				worker->getOrder() != BWAPI::Orders::MiningMinerals &&
-				worker->getOrder() != BWAPI::Orders::ReturnMinerals &&
-				worker->getOrder() != BWAPI::Orders::ResetCollision)
-			{
-				workerData.setWorkerJob(worker, WorkerData::Idle, nullptr);
+				closestUnit = unit;
+				closestDist = dist;
 			}
 		}
+	}
+
+	BWAPI::Unit target = closestUnit;
+
+	if (target &&
+		(!target->isMoving() || target->isStuck()) &&
+		worker->getDistance(target) <= 64)
+	{
+		Micro::SmartAttackUnit(worker, target);
+	}
+	else if (worker->getOrder() != BWAPI::Orders::MoveToMinerals &&
+		worker->getOrder() != BWAPI::Orders::WaitForMinerals &&
+		worker->getOrder() != BWAPI::Orders::MiningMinerals &&
+		worker->getOrder() != BWAPI::Orders::ReturnMinerals &&
+		worker->getOrder() != BWAPI::Orders::ResetCollision)
+	{
+		workerData.setWorkerJob(worker, WorkerData::Idle, nullptr);
 	}
 }
 
@@ -317,32 +325,6 @@ BWAPI::Unit WorkerManager::getBestEnemyTarget(BWAPI::Unit worker)
 	}
 
 	return bestTarget;
-}
-
-// Used for worker self-defense.
-// Only count enemy units that can be targeted by workers.
-BWAPI::Unit WorkerManager::getClosestEnemyUnit(BWAPI::Unit worker)
-{
-    UAB_ASSERT(worker != nullptr, "Worker was null");
-
-	BWAPI::Unit closestUnit = nullptr;
-	int closestDist = 1000;         // ignore anything farther away
-
-	for (auto & unit : BWAPI::Broodwar->enemy()->getUnits())
-	{
-		if (unit->isVisible() && unit->isDetected() && !unit->isFlying())
-		{
-			int dist = unit->getDistance(worker);
-
-			if (dist < closestDist)
-			{
-				closestUnit = unit;
-				closestDist = dist;
-			}
-		}
-	}
-
-	return closestUnit;
 }
 
 void WorkerManager::finishedWithCombatWorkers()

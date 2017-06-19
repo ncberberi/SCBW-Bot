@@ -27,7 +27,6 @@ class WorkerManager
     void        handleMoveWorkers();
 
 	BWAPI::Unit getBestEnemyTarget(BWAPI::Unit worker);
-	BWAPI::Unit getClosestEnemyUnit(BWAPI::Unit worker);
 
 	WorkerManager();
 
@@ -44,6 +43,7 @@ public:
 
     void        drawResourceDebugInfo();
     void        updateWorkerStatus();
+	void		defendSelf(BWAPI::Unit unit);
     void        drawWorkerInformation(int x,int y);
 
     int         getNumMineralWorkers() const;
