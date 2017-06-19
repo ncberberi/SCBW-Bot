@@ -59,6 +59,9 @@ public:
 	void	queueGasSteal();
 	void	startExtractorTrick();
 
+	int		getTargetGasAmount() const;
+	void	setTargetGasAmount(int amount);
+
 	void	goOutOfBook();
 	bool	isOutOfBook() const { return _outOfBook; };
 };

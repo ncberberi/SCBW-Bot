@@ -74,14 +74,6 @@ void ProductionManager::setBuildOrder(const BuildOrder & buildOrder)
 
 void ProductionManager::update() 
 {
-	// TODO move this to worker manager and make it more precise; it often goes a little over
-	// If we have reached a target amount of gas, take workers off gas.
-	if (_targetGasAmount && BWAPI::Broodwar->self()->gatheredGas() >= _targetGasAmount)  // tends to go over
-	{
-		WorkerManager::Instance().setCollectGas(false);
-		_targetGasAmount = 0;           // clear the target
-	}
-
 	// If we're in trouble, adjust the production queue to help.
 	// Includes scheduling supply as needed.
 	StrategyManager::Instance().handleUrgentProductionIssues(_queue);
@@ -562,6 +554,16 @@ int ProductionManager::getFreeMinerals() const
 int ProductionManager::getFreeGas() const
 {
 	return BWAPI::Broodwar->self()->gas() - BuildingManager::Instance().getReservedGas();
+}
+
+int ProductionManager::getTargetGasAmount() const
+{
+	return _targetGasAmount;
+}
+
+void ProductionManager::setTargetGasAmount(int amount)
+{
+	_targetGasAmount = amount;
 }
 
 void ProductionManager::executeCommand(MacroAct act)

@@ -2,6 +2,7 @@
 #include "WorkerManager.h"
 #include "Micro.h"
 #include "UnitUtil.h"
+#include "ProductionManager.h"
 
 using namespace UAlbertaBot;
 
@@ -184,6 +185,14 @@ void WorkerManager::handleGasWorkers()
 				}
 			}
 		}
+	}
+
+	// If we have reached a target amount of gas, take workers off gas.
+	int targetGasAmount = ProductionManager::Instance().getTargetGasAmount();
+	if (targetGasAmount && BWAPI::Broodwar->self()->gatheredGas() >= (targetGasAmount - 8))  // The worker already harvesting will still return 8 gas after the target is reached. This is accounted for to avoid overreaching the target. 
+	{
+		setCollectGas(false);
+		ProductionManager::Instance().setTargetGasAmount(0);           // clear the target
 	}
 }
 
