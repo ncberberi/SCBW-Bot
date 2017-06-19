@@ -130,6 +130,10 @@ void WorkerManager::defendSelf(BWAPI::Unit worker)
 		worker->getOrder() != BWAPI::Orders::WaitForMinerals &&
 		worker->getOrder() != BWAPI::Orders::MiningMinerals &&
 		worker->getOrder() != BWAPI::Orders::ReturnMinerals &&
+		worker->getOrder() != BWAPI::Orders::MoveToGas &&
+		worker->getOrder() != BWAPI::Orders::WaitForGas &&
+		worker->getOrder() != BWAPI::Orders::HarvestGas &&
+		worker->getOrder() != BWAPI::Orders::ReturnGas &&
 		worker->getOrder() != BWAPI::Orders::ResetCollision)
 	{
 		workerData.setWorkerJob(worker, WorkerData::Idle, nullptr);
