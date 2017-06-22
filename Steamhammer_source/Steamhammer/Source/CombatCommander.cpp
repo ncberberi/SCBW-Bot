@@ -443,7 +443,9 @@ void CombatCommander::updateBaseDefenseSquads()
 	    int flyingDefendersNeeded = numDefendersPerEnemyUnit * numEnemyFlyingInRegion;
 	    int groundDefendersNeeded = numDefendersPerEnemyUnit * numEnemyGroundInRegion;
 
-		// Count static defense as air defenders.
+		bool sunkenDefender = false;
+
+		// Count static defenses for both air and ground
 		for (auto & unit : BWAPI::Broodwar->self()->getUnits()) {
 			if ((unit->getType() == BWAPI::UnitTypes::Terran_Missile_Turret ||
 				unit->getType() == BWAPI::UnitTypes::Protoss_Photon_Cannon ||
@@ -453,23 +455,23 @@ void CombatCommander::updateBaseDefenseSquads()
 			{
 				flyingDefendersNeeded -= 3;
 			}
-		}
-		flyingDefendersNeeded = std::max(flyingDefendersNeeded, 0);
-
-		// Count static defense as ground defenders.
-		// Cannons get counted as air and ground, which can be a mistake.
-		bool sunkenDefender = false;
-		for (auto & unit : BWAPI::Broodwar->self()->getUnits()) {
-			if ((unit->getType() == BWAPI::UnitTypes::Protoss_Photon_Cannon ||
-				unit->getType() == BWAPI::UnitTypes::Zerg_Sunken_Colony) &&
-				unit->isCompleted() && unit->isPowered() &&
+			if ((unit->getType() == BWAPI::UnitTypes::Zerg_Sunken_Colony) &&
+				unit->isCompleted() &&
 				BWTA::getRegion(BWAPI::TilePosition(unit->getPosition())) == myRegion)
 			{
 				sunkenDefender = true;
-				groundDefendersNeeded -= 4;
+				groundDefendersNeeded -= 3;
+			}
+			if ((unit->getType() == BWAPI::UnitTypes::Protoss_Photon_Cannon) &&
+				unit->isCompleted() && unit->isPowered() &&
+				BWTA::getRegion(BWAPI::TilePosition(unit->getPosition())) == myRegion)
+			{
+				groundDefendersNeeded -= 2;
+				flyingDefendersNeeded -= 2;
 			}
 		}
 		groundDefendersNeeded = std::max(groundDefendersNeeded, 0);
+		flyingDefendersNeeded = std::max(flyingDefendersNeeded, 0);
 
 		// Pull workers only in narrow conditions.
 		// Pulling workers (as implemented) can lead to big losses.
