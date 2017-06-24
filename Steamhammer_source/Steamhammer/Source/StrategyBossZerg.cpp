@@ -569,20 +569,20 @@ bool StrategyBossZerg::takeUrgentAction(BuildOrderQueue & queue)
 		return true;
 	}
 
-	// There are no hatcheries.
+	// There are no hatcheries in play, currently building, or in the queue.
 	if (nHatches == 0 &&
 		nextInQueue != BWAPI::UnitTypes::Zerg_Hatchery &&
 		!isBeingBuilt(BWAPI::UnitTypes::Zerg_Hatchery))
 	{
 		ProductionManager::Instance().goOutOfBook();
-		queue.queueAsLowestPriority(MacroAct(BWAPI::UnitTypes::Zerg_Hatchery));
+		queue.queueAsHighestPriority(MacroAct(BWAPI::UnitTypes::Zerg_Hatchery));
 		if (nDrones == 1)
 		{
 			ScoutManager::Instance().releaseWorkerScout();
 			queue.queueAsHighestPriority(MacroAct(BWAPI::UnitTypes::Zerg_Drone));
-			cancelStuff(350);
+			cancelStuff(350); // 50 more minerals required to have a drone that can mine minerals
 		}
-		else {
+		else if (nDrones > 1) {
 			cancelStuff(300);
 		}
 		return true;
@@ -1659,7 +1659,7 @@ BuildOrder & StrategyBossZerg::freshProductionPlan()
 			armorUps == 2 && hasHiveTech)
 		{
 			// But delay if we're going mutas and don't have many yet. They want the gas.
-			if (!(hasSpire && _gasUnit == BWAPI::UnitTypes::Zerg_Mutalisk && gas < 600 && nMutas < 6))
+			if (!(hasSpire && _gasUnit == BWAPI::UnitTypes::Zerg_Mutalisk && gas < 400 && nMutas < 6))
 			{
 				produce(BWAPI::UpgradeTypes::Zerg_Carapace);
 			}
