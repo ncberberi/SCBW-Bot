@@ -1726,6 +1726,27 @@ BuildOrder & StrategyBossZerg::freshProductionPlan()
 
 	}
 
+	// If we're getting mutalisks, upgrade flyer defense if feasible (but prioritize attacks first).
+	int flyerDefenseUps = _self->getUpgradeLevel(BWAPI::UpgradeTypes::Zerg_Flyer_Carapace);
+	if (nDrones >= 12 && nGas > 0 && !_emergencyGroundDefense &&
+		hasSpire && (hasLairTech || hasHiveTech) &&
+		_gasUnit == BWAPI::UnitTypes::Zerg_Mutalisk &&
+		!_self->isUpgrading(BWAPI::UpgradeTypes::Zerg_Flyer_Carapace))
+	{
+		if ((flyerDefenseUps == 0 && flyerAttackUps > 0) ||
+			(flyerDefenseUps == 1 && flyerAttackUps > 1 && hasLairTech) ||
+			(flyerDefenseUps == 2 && flyerAttackUps > 2 && hasHiveTech))
+		{
+			// Make sure we have the gas to research it, and the mutalisks to make use of it.
+			if (gas > 250 && nMutas > 6)
+			{
+				produce(BWAPI::UpgradeTypes::Zerg_Flyer_Carapace);
+			}
+		}
+
+
+	}
+
 	// Make a queen's nest. Make it later versus zerg.
 	if (!hasQueensNest && hasLair && nGas >= 2 && !_emergencyGroundDefense &&
 		(_techTarget == TechTarget::Ultralisks && nDrones >= 16 ||
