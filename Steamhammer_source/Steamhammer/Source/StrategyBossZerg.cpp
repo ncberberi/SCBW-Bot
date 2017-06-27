@@ -1718,7 +1718,7 @@ BuildOrder & StrategyBossZerg::freshProductionPlan()
 			flyerAttackUps == 2 && hasHiveTech)
 		{
 			// Make sure we have the gas to research it, and the mutalisks to make use of it.
-			if (gas > 250 && nMutas > 6)
+			if (gas > 250 && nMutas > 3)
 			{
 				produce(BWAPI::UpgradeTypes::Zerg_Flyer_Attacks);
 			}
@@ -1738,7 +1738,7 @@ BuildOrder & StrategyBossZerg::freshProductionPlan()
 			(flyerDefenseUps == 2 && flyerAttackUps > 2 && hasHiveTech))
 		{
 			// Make sure we have the gas to research it, and the mutalisks to make use of it.
-			if (gas > 250 && nMutas > 6)
+			if (gas > 250 && nMutas > 3)
 			{
 				produce(BWAPI::UpgradeTypes::Zerg_Flyer_Carapace);
 			}
