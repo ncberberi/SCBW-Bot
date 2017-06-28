@@ -200,7 +200,6 @@
 
 		"ZvU" :
 			{ "StrategyMix" : [
-				{ "Weight" : 25, "Strategy" : "MutaGuardian" },
 				{ "Weight" :  5, "Strategy" : "FastPool", "Weight2" : 15 },
 				{ "Weight" : 20, "Strategy" : "9PoolHatch" },
 				{ "Weight" :  5, "Strategy" : "9PoolExpo" },
@@ -287,8 +286,6 @@
 				["4 x probe", "pylon", "5 x probe", "nexus", "go scout", "probe", "gateway", "probe", "assimilator", "2 x probe", "cybernetics core", "gateway", "2 x probe", "2 x dragoon", "singularity charge"]},
             "ForgeExpand"			: { "Race" : "Protoss", "OpeningGroup" : "zealots", "OpeningBuildOrder" :
 				["4 x probe", "pylon @ natural", "2 x probe", "forge @ natural", "go scout location", "probe", "photon cannon @ natural", "probe", "photon cannon @ natural", "nexus", "pylon @ macro", "3 x probe", "gateway", "gateway", "pylon"]},
-
-			"MutaGuardian"			: { "Race" : "Zerg",	"OpeningBuildOrder" : ["5 x drone", "overlord", "hatchery", "drone", "spawning pool", "2 x drone", "go scout location", "extractor", "go gas until 350", "drone", "5 x zergling", "metabolic boost", "7 x zergling", "lair", "4 x drone", "spire", "go start gas", "8 x Mutalisk", "queens nest", "hive", "greater spire", "4 x guardian"]},
 			
             "4PoolHard"				: { "Race" : "Zerg",    "OpeningBuildOrder" : ["spawning pool", "go scout location", "20 x zergling"] },
             "4PoolSoft"				: { "Race" : "Zerg",    "OpeningBuildOrder" : ["spawning pool", "go scout location", "drone", "20 x zergling"] },
