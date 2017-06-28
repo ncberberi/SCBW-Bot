@@ -1711,7 +1711,8 @@ BuildOrder & StrategyBossZerg::freshProductionPlan()
 	if (nDrones >= 12 && nGas > 0 && !_emergencyGroundDefense &&
 		hasSpire && (hasLairTech || hasHiveTech) &&
 		_gasUnit == BWAPI::UnitTypes::Zerg_Mutalisk &&
-		!_self->isUpgrading(BWAPI::UpgradeTypes::Zerg_Flyer_Attacks))
+		!_self->isUpgrading(BWAPI::UpgradeTypes::Zerg_Flyer_Attacks) &&
+		!_self->isUpgrading(BWAPI::UpgradeTypes::Zerg_Flyer_Carapace))
 	{
 		if (flyerAttackUps == 0 ||
 			flyerAttackUps == 1 && hasLairTech ||
@@ -1731,6 +1732,7 @@ BuildOrder & StrategyBossZerg::freshProductionPlan()
 	if (nDrones >= 12 && nGas > 0 && !_emergencyGroundDefense &&
 		hasSpire && (hasLairTech || hasHiveTech) &&
 		_gasUnit == BWAPI::UnitTypes::Zerg_Mutalisk &&
+		!_self->isUpgrading(BWAPI::UpgradeTypes::Zerg_Flyer_Attacks) &&
 		!_self->isUpgrading(BWAPI::UpgradeTypes::Zerg_Flyer_Carapace))
 	{
 		if ((flyerDefenseUps == 0 && flyerAttackUps > 0) ||
