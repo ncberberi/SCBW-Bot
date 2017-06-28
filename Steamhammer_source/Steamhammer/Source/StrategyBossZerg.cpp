@@ -272,6 +272,7 @@ void StrategyBossZerg::cancelStuff(int mineralsNeeded)
 			if (u->canCancelResearch()) 
 			{
 				u->cancelResearch();
+				currentMinerals = _self->minerals();
 			}
 
 		}
