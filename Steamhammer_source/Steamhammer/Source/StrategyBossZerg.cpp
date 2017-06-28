@@ -208,7 +208,7 @@ bool StrategyBossZerg::isBeingBuilt(const BWAPI::UnitType unitType) const
 
 // Severe emergency: We are out of drones and/or hatcheries.
 // Cancel items to release their resources until there is enough.
-// TODO pay attention to priority: the least essential first
+// Based on priority - less important things will be cancelled first.
 void StrategyBossZerg::cancelStuff(int mineralsNeeded)
 {
 	int currentMinerals = _self->minerals();
@@ -219,7 +219,7 @@ void StrategyBossZerg::cancelStuff(int mineralsNeeded)
 		{
 			return;
 		}
-		
+
 		// Cancel overlords in progress if we are not supply capped
 		if (u->getType() == BWAPI::UnitTypes::Zerg_Egg && u->getBuildType() == BWAPI::UnitTypes::Zerg_Overlord)
 		{
@@ -229,9 +229,17 @@ void StrategyBossZerg::cancelStuff(int mineralsNeeded)
 				u->cancelMorph();
 			}
 		}
+	}
+
+	for (BWAPI::Unit u : _self->getUnits())
+	{
+		if (currentMinerals >= mineralsNeeded)
+		{
+			return;
+		}
 
 		// Cancel buildings in progress
-		else if (u->getType() == BWAPI::UnitTypes::Zerg_Egg && u->getBuildType() != BWAPI::UnitTypes::Zerg_Drone ||
+		if (u->getType() == BWAPI::UnitTypes::Zerg_Egg && u->getBuildType() != BWAPI::UnitTypes::Zerg_Drone ||
 			u->getType() == BWAPI::UnitTypes::Zerg_Lair && !u->isCompleted() ||
 			u->getType() == BWAPI::UnitTypes::Zerg_Creep_Colony && !u->isCompleted() ||
 			u->getType() == BWAPI::UnitTypes::Zerg_Evolution_Chamber && !u->isCompleted() ||
@@ -242,9 +250,17 @@ void StrategyBossZerg::cancelStuff(int mineralsNeeded)
 			currentMinerals += u->getType().mineralPrice();
 			u->cancelMorph();
 		}
+	}
+
+	for (BWAPI::Unit u : _self->getUnits())
+	{
+		if (currentMinerals >= mineralsNeeded)
+		{
+			return;
+		}
 
 		// Cancel research
-		else if (u->getType() == BWAPI::UnitTypes::Zerg_Evolution_Chamber && u->isCompleted() ||
+		if (u->getType() == BWAPI::UnitTypes::Zerg_Evolution_Chamber && u->isCompleted() ||
 			u->getType() == BWAPI::UnitTypes::Zerg_Ultralisk_Cavern && u->isCompleted() ||
 			u->getType() == BWAPI::UnitTypes::Zerg_Hatchery && u->isCompleted() ||
 			u->getType() == BWAPI::UnitTypes::Zerg_Lair && u->isCompleted() ||
