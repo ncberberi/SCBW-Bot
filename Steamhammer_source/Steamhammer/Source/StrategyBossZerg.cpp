@@ -1232,7 +1232,7 @@ void StrategyBossZerg::chooseTechTarget(bool groundOverAir)
 	{
 		_techTarget = groundOverAir ? TechTarget::Hydralisks : TechTarget::Mutalisks;
 	}
-	else if (!den && spire && !ultra)       // excludes ZvZ
+	else if (!den && spire && !ultra)		// excludes ZvZ
 	{
 		_techTarget = groundOverAir ? TechTarget::Ultralisks : TechTarget::Hydralisks;
 	}
@@ -1244,7 +1244,7 @@ void StrategyBossZerg::chooseTechTarget(bool groundOverAir)
 	{
 		_techTarget = TechTarget::Ultralisks;
 	}
-	else if (ultra)
+	else if (ultra && !InformationManager::Instance().enemyHasReavers())		// Reaver scarabs still deal damage under a defiler's dark swarm, so in that case it's not worth teching into.
 	{
 		_techTarget = TechTarget::Defilers;
 	}
