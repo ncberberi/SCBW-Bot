@@ -17,6 +17,7 @@ InformationManager::InformationManager()
 	, _enemyHasMobileCloakTech(false)
 	, _enemyHasOverlordHunters(false)
 	, _enemyHasMobileDetection(_enemy->getRace() == BWAPI::Races::Zerg)
+	, _enemyHasReavers(false)
 {
 	initializeRegionInformation();
 	initializeNaturalBase();
@@ -1184,6 +1185,36 @@ bool InformationManager::enemyHasMobileDetection()
 			ui.type == BWAPI::UnitTypes::Protoss_Observer)
 		{
 			_enemyHasMobileDetection = true;
+			return true;
+		}
+	}
+
+	return false;
+}
+
+// Enemy has reavers.
+// This is only in the case that the oppenent is Protoss.
+bool InformationManager::enemyHasReavers()
+{
+	// Latch: Once they're known to have the tech, they always have it.
+	if (_enemyHasReavers)
+	{
+		return true;
+	}
+
+	if (_enemy->getRace() == BWAPI::Races::Terran ||
+		_enemy->getRace() == BWAPI::Races::Zerg)
+	{
+		return false;
+	}
+
+	for (const auto & kv : getUnitData(_enemy).getUnits())
+	{
+		const UnitInfo & ui(kv.second);
+
+		if (ui.type == BWAPI::UnitTypes::Protoss_Reaver)
+		{
+			_enemyHasReavers = true;
 			return true;
 		}
 	}

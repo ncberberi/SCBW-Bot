@@ -56,6 +56,7 @@ class InformationManager
 	bool			_enemyHasMobileCloakTech;
 	bool			_enemyHasOverlordHunters;
 	bool			_enemyHasMobileDetection;
+	bool			_enemyHasReavers;
 
 	std::map<BWAPI::Player, UnitData>                   _unitData;
 	std::map<BWAPI::Player, BWTA::BaseLocation *>       _mainBaseLocations;
@@ -133,6 +134,7 @@ public:
 	bool                    enemyHasMobileCloakTech();
 	bool					enemyHasOverlordHunters();
 	bool					enemyHasMobileDetection();
+	bool					enemyHasReavers();
 
 	int						nScourgeNeeded();           // zerg specific
 
