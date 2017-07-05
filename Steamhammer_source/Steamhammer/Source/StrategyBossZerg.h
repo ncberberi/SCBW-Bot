@@ -12,6 +12,7 @@ enum class TechTarget
 	, Hydralisks
 	, Mutalisks
 	, Ultralisks
+	, Defilers
 };
 
 class StrategyBossZerg
@@ -82,6 +83,7 @@ class StrategyBossZerg
 	bool hasQueensNest;
 	bool hasUltra;
 	bool hasUltraUps;
+	bool hasDefiler;
 
 	// hasLairTech means "can research stuff in the lair" (not "can research stuff that needs lair").
 	bool hasHiveTech;
