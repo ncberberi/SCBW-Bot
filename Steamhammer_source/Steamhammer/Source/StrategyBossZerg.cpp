@@ -161,6 +161,7 @@ void StrategyBossZerg::updateGameState()
 	hasUltraUps = _self->getUpgradeLevel(BWAPI::UpgradeTypes::Anabolic_Synthesis) != 0 &&
 		(_self->getUpgradeLevel(BWAPI::UpgradeTypes::Chitinous_Plating) != 0 ||
 		_self->isUpgrading(BWAPI::UpgradeTypes::Chitinous_Plating));
+	hasDefiler = UnitUtil::GetCompletedUnitCount(BWAPI::UnitTypes::Zerg_Defiler_Mound) > 0;
 
 	// hasLair means "can research stuff in the lair", like overlord speed.
 	// hasLairTech means "can do stuff that needs lair", like research lurker aspect.
@@ -1221,6 +1222,7 @@ void StrategyBossZerg::chooseTechTarget(bool groundOverAir)
 	const bool den = ZvZ || hasDen || isBeingBuilt(BWAPI::UnitTypes::Zerg_Hydralisk_Den) || UnitUtil::GetAllUnitCount(BWAPI::UnitTypes::Zerg_Hydralisk_Den);
 	const bool spire = hasSpire || isBeingBuilt(BWAPI::UnitTypes::Zerg_Spire) || UnitUtil::GetAllUnitCount(BWAPI::UnitTypes::Zerg_Spire);
 	const bool ultra = hasUltra || isBeingBuilt(BWAPI::UnitTypes::Zerg_Ultralisk_Cavern) || UnitUtil::GetAllUnitCount(BWAPI::UnitTypes::Zerg_Ultralisk_Cavern);
+	const bool defiler = hasDefiler || isBeingBuilt(BWAPI::UnitTypes::Zerg_Defiler_Mound) || UnitUtil::GetAllUnitCount(BWAPI::UnitTypes::Zerg_Defiler_Mound);
 
 	// Default. Value at the start of the game and after all tech is available.
 	_techTarget = TechTarget::None;
@@ -1241,6 +1243,10 @@ void StrategyBossZerg::chooseTechTarget(bool groundOverAir)
 	else if (!ultra)
 	{
 		_techTarget = TechTarget::Ultralisks;
+	}
+	else if (ultra)
+	{
+		_techTarget = TechTarget::Defilers;
 	}
 }
 
@@ -1371,6 +1377,7 @@ std::string StrategyBossZerg::techTargetToString(TechTarget target)
 	if (target == TechTarget::Hydralisks) return "Hydras";
 	if (target == TechTarget::Mutalisks ) return "Mutas";
 	if (target == TechTarget::Ultralisks) return "Ultras";
+	if (target == TechTarget::Defilers) return "Defilers";
 	return "[none]";
 }
 
@@ -1815,6 +1822,23 @@ BuildOrder & StrategyBossZerg::freshProductionPlan()
 			!_self->isUpgrading(BWAPI::UpgradeTypes::Chitinous_Plating))
 		{
 			produce(BWAPI::UpgradeTypes::Chitinous_Plating);
+		}
+	}
+
+	// Move toward defilers.
+	if (_techTarget == TechTarget::Defilers && !hasDefiler && hasHiveTech && nDrones >= 24 && nGas >= 3 &&
+		!isBeingBuilt(BWAPI::UnitTypes::Zerg_Defiler_Mound) &&
+		UnitUtil::GetAllUnitCount(BWAPI::UnitTypes::Zerg_Defiler_Mound) == 0)
+	{
+		produce(BWAPI::UnitTypes::Zerg_Defiler_Mound);
+	}
+	else if (hasDefiler && nDrones >= 24 && nGas >= 3)
+	{
+		// NOTE: BWAPI does not support research of Plague or Consume, but energy can be upgraded for more dark swarms.
+		if (_self->getUpgradeLevel(BWAPI::UpgradeTypes::Metasynaptic_Node) == 0 &&
+			!_self->isUpgrading(BWAPI::UpgradeTypes::Metasynaptic_Node))
+		{
+			produce(BWAPI::UpgradeTypes::Metasynaptic_Node);
 		}
 	}
 	
