@@ -15,6 +15,7 @@ namespace Micro
     void SmartRepair(BWAPI::Unit unit, BWAPI::Unit target);
 	bool SmartScan(const BWAPI::Position & targetPosition);
 	bool SmartStim(BWAPI::Unit unit);
+	bool SmartDarkSwarm(BWAPI::Unit unit);
 	bool SmartMergeArchon(BWAPI::Unit templar1, BWAPI::Unit templar2);
 	void SmartReturnCargo(BWAPI::Unit worker);
 	void SmartKiteTarget(BWAPI::Unit rangedUnit, BWAPI::Unit target);
