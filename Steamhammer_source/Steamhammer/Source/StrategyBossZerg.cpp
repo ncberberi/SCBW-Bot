@@ -1046,7 +1046,7 @@ void StrategyBossZerg::analyzeExtraDrones()
 // Decide by looking at the protoss unit mix.
 bool StrategyBossZerg::vProtossGroundOverAir()
 {
-	// Bias.
+	// Bias - assuming no information, hydralisks are preferred.
 	int denScore   = 3;
 	int spireScore = 0;
 
@@ -1080,7 +1080,13 @@ bool StrategyBossZerg::vProtossGroundOverAir()
 				}
 			}
 
-			if (ui.type.groundWeapon() == BWAPI::WeaponTypes::None ||     // corsairs, etc.
+			// Dedicated anti-air units more heavily favor going for hydralisks.
+			if (ui.type == BWAPI::UnitTypes::Protoss_Corsair ||
+				ui.type == BWAPI::UnitTypes::Protoss_Scout) 
+			{
+				denScore += ui.type.supplyRequired() + 3;
+			}
+			else if (ui.type.groundWeapon() == BWAPI::WeaponTypes::None ||
 				ui.type == BWAPI::UnitTypes::Protoss_Archon ||
 				ui.type == BWAPI::UnitTypes::Protoss_Dragoon ||
 				ui.type == BWAPI::UnitTypes::Protoss_Scout)
@@ -1100,9 +1106,9 @@ bool StrategyBossZerg::vProtossGroundOverAir()
 		}
 		else if (ui.type == BWAPI::UnitTypes::Protoss_Robotics_Support_Bay)
 		{
-			// Spire is especially good against reavers.
-			// Suspicion of reavers is worth more than the bias toward hydras.
-			spireScore += 6;
+			// Spire is heavily favored against reavers.
+			// The more proactively we can react to incoming reavers, the better.
+			spireScore += 12;
 		}
 	}
 
