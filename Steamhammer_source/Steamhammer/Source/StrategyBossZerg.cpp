@@ -1113,7 +1113,7 @@ bool StrategyBossZerg::vProtossGroundOverAir()
 // Decide by looking at the terran unit mix.
 bool StrategyBossZerg::vTerranGroundOverAir()
 {
-	// Bias.
+	// Bias - assuming no information, mutalisks are preferred.
 	int denScore   = 0;
 	int spireScore = 3;
 
@@ -1125,11 +1125,7 @@ bool StrategyBossZerg::vTerranGroundOverAir()
 	{
 		const UnitInfo & ui(kv.second);
 
-		if (ui.type == BWAPI::UnitTypes::Terran_Marine)
-		{
-			spireScore += 1;
-		}
-		else if (ui.type == BWAPI::UnitTypes::Terran_Missile_Turret)
+		if (ui.type == BWAPI::UnitTypes::Terran_Missile_Turret)
 		{
 			denScore += 1;
 		}
@@ -1144,7 +1140,11 @@ bool StrategyBossZerg::vTerranGroundOverAir()
 		}
 		else if (ui.type == BWAPI::UnitTypes::Terran_Wraith)
 		{
-			denScore += 1;
+			denScore += 3;
+		}
+		else if (ui.type == BWAPI::UnitTypes::Terran_Vulture)
+		{
+			spireScore += 1;
 		}
 		else if (ui.type == BWAPI::UnitTypes::Terran_Siege_Tank_Siege_Mode ||
 			ui.type == BWAPI::UnitTypes::Terran_Siege_Tank_Tank_Mode)
@@ -1155,7 +1155,7 @@ bool StrategyBossZerg::vTerranGroundOverAir()
 		{
 			if (ui.type.airWeapon() == BWAPI::WeaponTypes::None)
 			{
-				spireScore += 2;
+				spireScore += 1;
 			}
 		}
 	}
