@@ -1167,25 +1167,47 @@ bool StrategyBossZerg::vTerranGroundOverAir()
 // Decide by looking at the enemy's static defense.
 bool StrategyBossZerg::vZergGroundOverAir()
 {
-	// Bias.
+	// Bias - assuming no information, mutalisks are preferred
 	int lingScore  = 0;
-	int spireScore = 1;
+	int spireScore = 2;
 
 	// Hysteresis. Make it bigger than the bias.
-	if (_techTarget == TechTarget::Ultralisks) { lingScore  += 2; };
-	if (_techTarget == TechTarget::Mutalisks)  { spireScore += 2; };
+	if (_techTarget == TechTarget::Ultralisks) { lingScore  += 4; };
+	if (_techTarget == TechTarget::Mutalisks)  { spireScore += 4; };
 
 	for (const auto & kv : InformationManager::Instance().getUnitData(_enemy).getUnits())
 	{
 		const UnitInfo & ui(kv.second);
 
-		if (ui.type == BWAPI::UnitTypes::Zerg_Sunken_Colony)
+		if (!ui.type.isWorker() && !ui.type.isBuilding() && !ui.type == BWAPI::UnitTypes::Zerg_Overlord)
 		{
-			spireScore += 1;
+			if (ui.type == BWAPI::UnitTypes::Zerg_Hydralisk)
+			{
+				lingScore += 2;
+			}
+			else if (ui.type == BWAPI::UnitTypes::Zerg_Mutalisk)
+			{
+				spireScore += 2;
+			}
+			else if (ui.type == BWAPI::UnitTypes::Zerg_Zergling)
+			{
+				spireScore += 1;
+			}
+			else if (ui.type.airWeapon() == BWAPI::WeaponTypes::None)
+			{
+				spireScore += 2;
+			}
+			else if (ui.type.groundWeapon() == BWAPI::WeaponTypes::None) {
+				lingScore += 2;
+			}
+		}
+		else if (ui.type == BWAPI::UnitTypes::Zerg_Sunken_Colony)
+		{
+			spireScore += 2;
 		}
 		else if (ui.type == BWAPI::UnitTypes::Zerg_Spore_Colony)
 		{
-			lingScore += 1;
+			lingScore += 2;
 		}
 	}
 
