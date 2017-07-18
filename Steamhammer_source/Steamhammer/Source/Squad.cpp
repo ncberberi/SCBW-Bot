@@ -93,6 +93,7 @@ void Squad::update()
 		_microMelee.regroup(regroupPosition);
 		_microRanged.regroup(regroupPosition);
 		_microLurkers.regroup(regroupPosition);
+		_microDefilers.regroup(regroupPosition);
 		_microTanks.regroup(regroupPosition);
 	}
 	else
@@ -101,6 +102,7 @@ void Squad::update()
 		_microMelee.execute(_order);
 		_microRanged.execute(_order);
 		_microLurkers.execute(_order);
+		_microDefilers.execute(_order);
 		_microTanks.execute(_order);
 	}
 
@@ -218,6 +220,7 @@ void Squad::addUnitsToMicroManagers()
 	BWAPI::Unitset highTemplarUnits;
 	BWAPI::Unitset transportUnits;
 	BWAPI::Unitset lurkerUnits;
+	BWAPI::Unitset defilerUnits;
     BWAPI::Unitset tankUnits;
     BWAPI::Unitset medicUnits;
 
@@ -244,6 +247,10 @@ void Squad::addUnitsToMicroManagers()
 			else if (unit->getType() == BWAPI::UnitTypes::Zerg_Lurker)
 			{
 				lurkerUnits.insert(unit);
+			}
+			else if (unit->getType() == BWAPI::UnitTypes::Zerg_Defiler)
+			{
+				defilerUnits.insert(unit);
 			}
 			else if (unit->getType() == BWAPI::UnitTypes::Terran_Siege_Tank_Siege_Mode ||
 				unit->getType() == BWAPI::UnitTypes::Terran_Siege_Tank_Tank_Mode)
@@ -281,6 +288,7 @@ void Squad::addUnitsToMicroManagers()
 	_microDetectors.setUnits(detectorUnits);
 	_microHighTemplar.setUnits(highTemplarUnits);
 	_microLurkers.setUnits(lurkerUnits);
+	_microDefilers.setUnits(defilerUnits);
 	_microMedics.setUnits(medicUnits);
 	_microTanks.setUnits(tankUnits);
 	_microTransports.setUnits(transportUnits);

@@ -12,6 +12,7 @@
 #include "MicroDetectors.h"
 #include "MicroHighTemplar.h"
 #include "MicroLurkers.h"
+#include "MicroDefilers.h"
 #include "MicroMedics.h"
 #include "MicroTanks.h"
 #include "MicroTransports.h"
@@ -39,6 +40,7 @@ class Squad
 	MicroDetectors		_microDetectors;
 	MicroHighTemplar	_microHighTemplar;
 	MicroLurkers		_microLurkers;
+	MicroDefilers		_microDefilers;
 	MicroMedics			_microMedics;
 	MicroTanks			_microTanks;
 	MicroTransports		_microTransports;
