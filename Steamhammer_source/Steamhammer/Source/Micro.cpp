@@ -316,7 +316,7 @@ bool Micro::SmartDarkSwarm(BWAPI::Unit unit)
 	}
 
 	// If it doesn't have enough energy, ignore this unit.
-	if (unit->getEnergy < 100) {
+	if (unit->getEnergy() < 100) {
 		return false;
 	}
 
