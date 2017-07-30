@@ -730,24 +730,24 @@ void Squad::darkSwarmIfNeeded()
 	for (const auto defiler : _microDefilers.getUnits())
 	{
 		// Melee units - these are preferred first as targets for dark swarm since they'll probably be absorbing the most damage.
-		for (const auto targetUnit : _microMelee.getUnits()) {
-			if (targetUnit->getDistance(defiler) < 50 &&
-				targetUnit->isAttacking() &&
-				targetUnit->isUnderAttack() &&
-				!targetUnit->isUnderDarkSwarm())
+		for (const auto target : _microMelee.getUnits()) {
+			if (target->getDistance(defiler) < 50 &&
+				target->isAttacking() &&
+				target->isUnderAttack() &&
+				!target->isUnderDarkSwarm())
 			{
-				Micro::SmartDarkSwarm(targetUnit);
+				Micro::SmartDarkSwarm(defiler, target);
 			}
 		}
 
 		// Ranged units - they can also benefit well from dark swarm, such as a group of hydralisks.
-		for (const auto targetUnit : _microRanged.getUnits()) {
-			if (targetUnit->getDistance(defiler) < 50 &&
-				targetUnit->isAttacking() &&
-				targetUnit->isUnderAttack() &&
-				!targetUnit->isUnderDarkSwarm())
+		for (const auto target : _microRanged.getUnits()) {
+			if (target->getDistance(defiler) < 50 &&
+				target->isAttacking() &&
+				target->isUnderAttack() &&
+				!target->isUnderDarkSwarm())
 			{
-				Micro::SmartDarkSwarm(targetUnit);
+				Micro::SmartDarkSwarm(defiler, target);
 			}
 		}
 	}
