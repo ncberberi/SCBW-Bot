@@ -60,6 +60,7 @@ class Squad
 
 	void			loadTransport();
 	void			stimIfNeeded();
+	void			darkSwarmIfNeeded();
 
 public:
 

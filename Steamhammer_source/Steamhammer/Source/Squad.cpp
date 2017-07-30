@@ -106,8 +106,9 @@ void Squad::update()
 		_microTanks.execute(_order);
 	}
 
-	// Maybe stim marines and firebats.
+	// If conditions permit, stim marines/firebats and cast defilers.
 	stimIfNeeded();
+	darkSwarmIfNeeded();
 
 	// The remaining non-combat micro managers try to keep units near the front line.
 	if (BWAPI::Broodwar->getFrameCount() % 8 == 3)    // deliberately lag a little behind reality
@@ -704,6 +705,50 @@ void Squad::stimIfNeeded()
 		{
 			Micro::SmartStim(marine);
 			totalMedicEnergy -= stimEnergyCost;
+		}
+	}
+}
+
+// Cast dark swarm from defilers if possible and appropriate.
+void Squad::darkSwarmIfNeeded()
+{
+	// Check a few basic prerequisites first.
+	if (BWAPI::Broodwar->self()->getRace() != BWAPI::Races::Zerg ||
+		!BWAPI::Broodwar->self()->hasUnitTypeRequirement(BWAPI::UnitTypes::Zerg_Defiler) ||
+		!_microDefilers.containsType(BWAPI::UnitTypes::Zerg_Defiler))
+	{
+		return;
+	}
+
+	if (_nearEnemy.empty())
+	{
+		return;
+	}
+
+	// For each defiler, look for a target that's close enough and will benefit from a dark swarm.
+	// The ideal target is one that is in the middle or on the frontline of a battle.
+	for (const auto defiler : _microDefilers.getUnits())
+	{
+		// Melee units - these are preferred first as targets for dark swarm since they'll probably be absorbing the most damage.
+		for (const auto targetUnit : _microMelee.getUnits()) {
+			if (targetUnit->getDistance(defiler) < 50 &&
+				targetUnit->isAttacking() &&
+				targetUnit->isUnderAttack() &&
+				!targetUnit->isUnderDarkSwarm())
+			{
+				Micro::SmartDarkSwarm(targetUnit);
+			}
+		}
+
+		// Ranged units - they can also benefit well from dark swarm, such as a group of hydralisks.
+		for (const auto targetUnit : _microRanged.getUnits()) {
+			if (targetUnit->getDistance(defiler) < 50 &&
+				targetUnit->isAttacking() &&
+				targetUnit->isUnderAttack() &&
+				!targetUnit->isUnderDarkSwarm())
+			{
+				Micro::SmartDarkSwarm(targetUnit);
+			}
 		}
 	}
 }
