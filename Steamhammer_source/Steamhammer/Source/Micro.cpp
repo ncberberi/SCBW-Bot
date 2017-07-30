@@ -305,47 +305,35 @@ bool Micro::SmartStim(BWAPI::Unit unit)
 
 // Orders a defiler to cast dark swarm, if possible; otherwise, do nothing.
 // Return whether dark swarm was casted.
-bool Micro::SmartDarkSwarm(BWAPI::Unit unit)
+bool Micro::SmartDarkSwarm(BWAPI::Unit defiler, BWAPI::Unit target)
 {
-	if (!unit ||
-		unit->getType() != BWAPI::UnitTypes::Zerg_Defiler ||
-		unit->getPlayer() != BWAPI::Broodwar->self())
+	if (!defiler ||
+		defiler->getType() != BWAPI::UnitTypes::Zerg_Defiler ||
+		defiler->getPlayer() != BWAPI::Broodwar->self())
 	{
 		UAB_ASSERT(false, "bad unit");
 		return false;
 	}
 
 	// If it doesn't have enough energy, ignore this unit.
-	if (unit->getEnergy() < 100) {
+	if (defiler->getEnergy() < 100) {
 		return false;
 	}
 
 	// If we have issued a command to this unit already during this frame, ignore it.
-	if (unit->getLastCommandFrame() >= BWAPI::Broodwar->getFrameCount())
+	if (defiler->getLastCommandFrame() >= BWAPI::Broodwar->getFrameCount())
 	{
 		return false;
 	}
 
 	// Allow a small latency for a previous cast command to take effect.
-	if (unit->getLastCommand().getType() == BWAPI::UnitCommandTypes::Use_Tech &&
-		BWAPI::Broodwar->getFrameCount() - unit->getLastCommandFrame() < 8)
+	if (defiler->getLastCommand().getType() == BWAPI::UnitCommandTypes::Use_Tech &&
+		BWAPI::Broodwar->getFrameCount() - defiler->getLastCommandFrame() < 8)
 	{
 		return false;
 	}
 
-	// Pick a target that's close enough and will benefit from a dark swarm.
-	for (const auto targetUnit : BWAPI::Broodwar->self()->getUnits()) {
-		if (targetUnit->getDistance(unit) < 40 &&
-			targetUnit->isAttacking() &&
-			!targetUnit->isUnderDarkSwarm())
-		{
-			return unit->useTech(BWAPI::TechTypes::Dark_Swarm, targetUnit);
-		}
-	}
-
-	// False if no viable targets were found.
-	return false;
-
+	return defiler->useTech(BWAPI::TechTypes::Dark_Swarm, target);
 }
 
 // Merge the 2 given high templar into an archon.
