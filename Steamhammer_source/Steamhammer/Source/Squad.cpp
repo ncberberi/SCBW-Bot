@@ -729,6 +729,11 @@ void Squad::darkSwarmIfNeeded()
 	// The ideal target is one that is in the middle or on the frontline of a battle.
 	for (const auto defiler : _microDefilers.getUnits())
 	{
+		// If this defiler doesn't have enough energy, ignore this unit.
+		if (defiler->getEnergy() < 100) {
+			continue;
+		}
+
 		// Melee units - these are preferred first as targets for dark swarm since they'll probably be absorbing the most damage.
 		for (const auto target : _microMelee.getUnits()) {
 			if (target->getDistance(defiler) < 50 &&

@@ -315,11 +315,6 @@ bool Micro::SmartDarkSwarm(BWAPI::Unit defiler, BWAPI::Unit target)
 		return false;
 	}
 
-	// If it doesn't have enough energy, ignore this unit.
-	if (defiler->getEnergy() < 100) {
-		return false;
-	}
-
 	// If we have issued a command to this unit already during this frame, ignore it.
 	if (defiler->getLastCommandFrame() >= BWAPI::Broodwar->getFrameCount())
 	{
